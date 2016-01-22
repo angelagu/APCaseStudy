@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
@@ -10,6 +11,8 @@ import matplotlib.pyplot as plt
 import datetime
 
 data_direc = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../data')
+plot_direc = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../plots')
+
 ignore_columns = ['Date']
 
 def prepare_data(df):
@@ -77,7 +80,7 @@ def pca(df, filename, n_components=2):
 	plt.figure()
 	plt.scatter(X[:,0], X[:,1], c=Y)
 	plt.title('%s PCA with Kmeans Clustering (K = 4)' %filename)
-	plt.savefig('%s_%s.png' %(filename.lower(), 'pca'))
+	plt.savefig('%s/%s_%s.png' %(plot_direc, filename.lower(), 'pca'))
 
 soybean_df = pd.read_csv('%s/%s.csv' %(data_direc, 'soybean_merged'))
 soybean_oil_df = pd.read_csv('%s/%s.csv' %(data_direc, 'soybean_oil_merged'))
