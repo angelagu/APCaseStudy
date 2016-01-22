@@ -11,3 +11,6 @@ Random forest:  0.842105263158
 KNN:  0.526315789474
 SVM:  0.473684210526
 Logistic Regression:  0.473684210526
+
+Pearson Correlation between Soybean and Soybean
+0.879062252981

@@ -132,3 +132,14 @@ if __name__ == '__main__':
 
 	soybean.to_csv('%s/%s.csv' %(data_direc, 'soybean_merged'))
 	soybean_oil.to_csv('%s/%s.csv' %(data_direc, 'soybean_oil_merged'))
+
+	# Combining the soybean data and soybean oil data to see correlation
+	combined = pd.merge(soybean_futures, soybean_oil_futures, suffixes=[' Soybean', ' Soybean Oil'], how='inner', on='Date')
+	# Normalizing both datasets so they're the same scale
+	combined['Settle Soybean'] = (combined['Settle Soybean'] - combined['Settle Soybean'].mean()) / (combined['Settle Soybean'].max() - combined['Settle Soybean'].min())
+	combined['Settle Soybean Oil'] = (combined['Settle Soybean Oil'] - combined['Settle Soybean Oil'].mean()) / (combined['Settle Soybean Oil'].max() - combined['Settle Soybean Oil'].min())
+	print 'Pearson Correlation between Soybean and Soybean'
+	print pearson_correlation(combined, 'Settle Soybean', 'Settle Soybean Oil')
+	visualize.visualize(plot_direc, combined, 'Date', ['Settle Soybean', 'Settle Soybean Oil'], 'soybean_and_oil_price', title='Soybean and Soybean Oil Price', ylabel='Settle', xlabel='Date')
+
+
