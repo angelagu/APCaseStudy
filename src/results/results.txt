@@ -1,0 +1,13 @@
+Soybean Results
+
+Random forest:  1.0
+KNN:  0.45
+SVM:  0.65
+Logistic Regression:  0.7
+
+Soybean Oil Results
+
+Random forest:  0.842105263158
+KNN:  0.526315789474
+SVM:  0.473684210526
+Logistic Regression:  0.473684210526
