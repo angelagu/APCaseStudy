@@ -22,6 +22,7 @@ soybean_ctr = 'soybean_ctr'
 soybean_oil_ctr = 'soybean_oil_ctr'
 
 def daily_returns(df, graph_name, returns_col):
+	# Daily percentage returns
 	date_col = 'Date'
 	daily_returns_col = 'Daily Returns'
 	df[daily_returns_col] = df[returns_col].pct_change(1)
@@ -31,6 +32,8 @@ def daily_returns(df, graph_name, returns_col):
 	return df
 
 def multi_day_features(df, graph_name, returns_col, n):
+	# Computes the percentage return for n previous days as well as
+	# Computes the rolling average for n previous days
 	date_col = 'Date'
 	returns_n = '%s Day Returns' % (str(n))
 	roll_n = '%s Day Rolling Average' % (str(n))
@@ -49,6 +52,7 @@ def multi_day_features(df, graph_name, returns_col, n):
 	return df
 
 def cumulative_daily_returns(df, graph_name, returns_col):
+	# Cumulative daily returns
 	date_col = 'Date'
 	daily_returns_col = 'Cumulative Daily Returns'
 	initial_price = df[returns_col][0]
