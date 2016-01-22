@@ -58,12 +58,12 @@ To work with the project, first activate the virtual environment:
 
 * `v venv`
 
-Then, run quandl/__init__.py to download the data from Quandl:
+Then, run `quandl/__init__.py` to download the data from Quandl:
 
 * `cd src/quandl`
 * `python __init__.py`
 
-Then, run analysis/__init__.py to analyze and plot the data:
+Then, run `analysis/__init__.py` to analyze and plot the data:
 
 * `cd src/analysis`
 * `python __init__.py`
